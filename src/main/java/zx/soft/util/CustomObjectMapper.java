@@ -6,10 +6,12 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-import org.codehaus.jackson.map.ObjectMapper;
-import org.codehaus.jackson.map.SerializationConfig;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 
 public class CustomObjectMapper extends ObjectMapper {
+
+	private static final long serialVersionUID = 6825702373960502112L;
 
 	public static DateFormat sinaDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.ENGLISH);
 
@@ -22,7 +24,7 @@ public class CustomObjectMapper extends ObjectMapper {
 	public CustomObjectMapper() {
 		super();
 		setDateFormat(sinaDateFormat);
-		configure(SerializationConfig.Feature.INDENT_OUTPUT, true);
+		configure(SerializationFeature.INDENT_OUTPUT, true);
 	}
 
 }
